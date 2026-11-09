@@ -102,3 +102,31 @@ if (identityChoices.length && optionalContact) {
   identityChoices.forEach((choice) => choice.addEventListener('change', updateContactVisibility));
   updateContactVisibility();
 }
+
+
+// Select the next dated event from the event cards. End times use campus time
+// (America/Chicago); events without a confirmed end time remain all day.
+function updateNextUp(now = new Date()) {
+  const banner = document.getElementById('next-up-text');
+  if (!banner) return;
+  const upcoming = Array.from(document.querySelectorAll('[data-event-end]'))
+    .map((card) => ({ card, end: new Date(card.dataset.eventEnd) }))
+    .filter(({ end }) => Number.isFinite(end.getTime()) && end >= now)
+    .sort((a, b) => a.end - b.end);
+  const next = upcoming[0];
+  if (!next) {
+    banner.textContent = 'More events coming soon • Follow @brother2brother.asu for updates';
+    return;
+  }
+  const date = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago', month: 'long', day: 'numeric', year: 'numeric'
+  }).format(next.end);
+  const details = Array.from(next.card.querySelectorAll('.event-meta li'))
+    .map((item) => item.textContent.trim());
+  banner.textContent = [next.card.querySelector('h3').textContent.trim(), date, ...details].join(' • ');
+}
+updateNextUp();
+setInterval(updateNextUp, 60000);
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden) updateNextUp();
+});
