@@ -74,3 +74,41 @@ GitHub / Netlify repository structure:
 - Keep all image and QR assets inside the assets/ folder.
 - Do not move the assets files to the repository root because index.html and thanks.html reference assets/... paths.
 - Netlify should publish from the repository root with no build command.
+
+
+Revision v9.2 (20260831-1)
+- Corrected the Dr. Lonnie Williams and Dr. Herman Strickland founder photo assignments.
+- Increased spacing between the hero title and B2B logo card at laptop widths.
+- Added version query strings to CSS, JavaScript, logo, QR, and founder image requests to force stale browsers to fetch the latest files.
+- Reduced asset cache duration during active development and set HTML to revalidate.
+
+
+Revision v9.3
+- Footer landing-page links are now a two-column grid instead of a single stacked list.
+- Added an Arkansas State University logo to the footer using a dark-background-friendly logo treatment.
+
+
+Revision v9.4
+- Footer links now exactly mirror the top navigation: About, Events, Leadership, Ideas, Join, Serve, Lead, Contact, and Pay Dues.
+- Removed footer-only History, Membership, and FAQ links.
+- Added a clearly visible Arkansas State University logo in the right footer column above the contact/social links.
+- Footer navigation remains a two-column list.
+
+
+Revision v9.5
+- Added FAQ to the footer navigation.
+- Top navigation remains unchanged.
+
+
+Revision v9.6
+- Reworked the footer into a significantly more compact layout.
+- Switched the Arkansas State footer mark from the large stacked logo to a shorter horizontal logo.
+- Reduced B2B logo size, footer padding, navigation spacing, and contact text size.
+- Kept the footer navigation in two columns and retained FAQ.
+- Added tablet/mobile footer layouts to prevent the footer from feeling oversized when stacked.
+
+
+Revision v9.7
+- Replaced the footer email, Instagram, and GroupMe text links with clickable icon buttons.
+- Slightly increased footer font sizes for better readability.
+- Preserved the compact footer layout and two-column navigation.
